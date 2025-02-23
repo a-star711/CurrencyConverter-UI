@@ -1,6 +1,9 @@
+import { API_BASE_URL } from "../utils/constants";
+
 export const convertCurrency = async (currency: string, value: number) => {
+  
   try {
-    const response = await fetch("https://currency-converter-back.vercel.app/convert", {
+    const response = await fetch(`${API_BASE_URL}/convert`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

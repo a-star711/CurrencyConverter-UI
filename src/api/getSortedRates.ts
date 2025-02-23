@@ -1,5 +1,8 @@
+import { API_BASE_URL } from "../utils/constants";
+
+
 export const sortRates = async () => {
-  const response = await fetch("https://currency-converter-back.vercel.app/sort");
+  const response = await fetch(`${API_BASE_URL}/sort`);
 
   if (!response.ok) throw new Error("Failed to fetch rates");
   const sortedRates = await response.json();
