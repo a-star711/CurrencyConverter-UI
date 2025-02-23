@@ -39,7 +39,7 @@ const CurrencyInput = ({
   };
 
   return (
-    <div className={styles.inputContainer}>
+    <section className={styles.inputContainer}>
       <label className={styles.label}>{currency}</label>
       <input
         type="number"
@@ -50,7 +50,7 @@ const CurrencyInput = ({
       <button onClick={onRemove} className={styles.removeButton}>
         ×
       </button>
-    </div>
+    </section>
   );
 };
 
