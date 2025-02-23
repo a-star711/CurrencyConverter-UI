@@ -1,0 +1,40 @@
+.inputContainer {
+  display: grid;
+  grid-template-columns: auto 1fr auto; 
+  align-items: center; 
+  gap: 10px; 
+  width: 100%; 
+  padding: 5px 10px;
+}
+
+.inputContainer .input {
+  width: 100%; 
+  min-width: 80px; 
+  height: 40px; 
+  padding: 5px 10px; 
+  font-size: 16px; 
+  border: 1px solid #ccc;
+  border-radius: 4px; 
+}
+
+label {
+  font-size: 16px; 
+  font-weight: bold; 
+  max-width: 30px;
+  padding-right: 5px;
+
+}
+
+.removeButton {
+  background: none;
+  border: none;
+  color: rgb(166, 155, 221);
+  font-size: 20px;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+  margin-left: 5px;
+}
+
+.removeButton:hover {
+  color: rgb(135, 12, 12); 
+}
