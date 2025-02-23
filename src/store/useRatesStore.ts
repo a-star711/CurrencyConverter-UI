@@ -22,7 +22,6 @@ const useRatesStore = create<RatesStore>((set) => ({
     set({ loading: true, error: null }); 
     try {
       const data = await fetchRates(); 
-      console.log('store', data)
       set({ rates: data.conversion_rates, loading: false }); 
     } catch (error) {
       set({ error: 'Failed to fetch rates', loading: false }); 
@@ -38,7 +37,6 @@ const useRatesStore = create<RatesStore>((set) => ({
     try {
       const data = await sortRates();
       set({ sortedRates: data.conversion_rates, loading: false });
-      console.log('store sort', data.conversion_rates)
       return data.conversion_rates; 
     } catch (error) {
       set({ error: "Failed to fetch sorted rates", loading: false });
