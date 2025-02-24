@@ -14,7 +14,7 @@ import useRatesStore from "../../store/useRatesStore";
 import CustomButton from "../CustomButton/CustomButton";
 import { rowsPerPageOptions } from "../../utils/constants";
 const ExchangeRatesTable = () => {
-  const { rates, sortedRates, loading, error } = useRatesStore();
+  const { rates, loading, error, fetchSortedRates } = useRatesStore();
   const [ratesToDisplay, setRatesToDisplay] =
     useState<Record<string, number>>(rates);
   const [isSorted, setIsSorted] = useState<boolean>(false);
@@ -24,14 +24,14 @@ const ExchangeRatesTable = () => {
 
   useEffect(() => {
     useRatesStore.getState().fetchRates();
-    useRatesStore.getState().fetchSortedRates();
   }, []);
 
   useEffect(() => {
     setRatesToDisplay(rates);
   }, [rates]);
 
-  const toggleSort = () => {
+  const toggleSort = async () => {
+    const sortedRates = await fetchSortedRates();
     setRatesToDisplay(isSorted ? rates : sortedRates);
     setIsSorted(!isSorted);
   };
