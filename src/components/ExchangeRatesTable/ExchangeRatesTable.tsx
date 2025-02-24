@@ -31,9 +31,15 @@ const ExchangeRatesTable = () => {
   }, [rates]);
 
   const toggleSort = async () => {
+    if (isSorted) {
+      setRatesToDisplay(rates);
+      setIsSorted(false);
+      return;
+    }
+
     const sortedRates = await fetchSortedRates();
-    setRatesToDisplay(isSorted ? rates : sortedRates);
-    setIsSorted(!isSorted);
+    setRatesToDisplay(sortedRates);
+    setIsSorted(true);
   };
 
   const currencies = Object.entries(ratesToDisplay);
