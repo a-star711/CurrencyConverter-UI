@@ -10,9 +10,9 @@ import {
   TablePagination,
 } from "@mui/material";
 import useRatesStore from "../../store/useRatesStore";
-
 import CustomButton from "../CustomButton/CustomButton";
 import { rowsPerPageOptions } from "../../utils/constants";
+
 const ExchangeRatesTable = () => {
   const { rates, loading, error, fetchSortedRates } = useRatesStore();
   const [ratesToDisplay, setRatesToDisplay] =
@@ -48,7 +48,10 @@ const ExchangeRatesTable = () => {
   if (error) return <div>Error: {error}</div>;
 
   return (
-    <TableContainer component={Paper}>
+    <TableContainer
+      component={Paper}
+      sx={{ boxShadow: "2px 2px 10px rgba(18, 73, 211, 0.716)" }}
+    >
       <Table>
         <TableHead>
           <TableRow>

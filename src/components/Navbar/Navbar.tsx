@@ -1,19 +1,11 @@
 import styles from "./Navbar.module.css";
-import { ReactNode } from "react"; // ✅ Import ReactNode
 
-type NavbarProps = {
-  children: ReactNode;
-};
-
-function Navbar({ children }: NavbarProps): ReactNode {
+const Navbar = () => {
   return (
-    <header>
-      <div className={styles.header}>
-        <h3>FX rates</h3>
-      </div>
-      {children}
+    <header className={styles.header}>
+      <h3 className={styles.title}>FX Rates</h3>
     </header>
   );
-}
+};
 
 export default Navbar;
