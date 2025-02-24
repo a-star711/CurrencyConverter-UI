@@ -7,10 +7,12 @@ type NavbarProps = {
 
 function Navbar({ children }: NavbarProps): ReactNode {
   return (
-    <div className="navbar-container">
-      <header className={styles.header}>FX rates</header>
+    <header>
+      <div className={styles.header}>
+        <h3>FX rates</h3>
+      </div>
       {children}
-    </div>
+    </header>
   );
 }
 
