@@ -13,10 +13,15 @@ const CurrencyConverter = () => {
 
   useEffect(() => {
     const savedRates = sessionStorage.getItem("convertedRates");
+    const cachedCurrencies = sessionStorage.getItem("addedCurrencies");
     if (savedRates) {
       setRates(JSON.parse(savedRates));
     }
-  }, [setRates]);
+
+    if (cachedCurrencies) {
+      setAddedCurrencies(JSON.parse(cachedCurrencies));
+    }
+  }, []);
 
   const handleInputChange = async (currency: string, value: number) => {
     try {
@@ -29,17 +34,29 @@ const CurrencyConverter = () => {
   };
 
   const handleAddCurrency = (currency: string) => {
-    if (addedCurrencies.length < MAX_CURRENCY_INPUTS) {
-      if (!addedCurrencies.includes(currency)) {
-        setAddedCurrencies([...addedCurrencies, currency]);
-      }
+    if (
+      addedCurrencies.length < MAX_CURRENCY_INPUTS &&
+      !addedCurrencies.includes(currency)
+    ) {
+      const updatedCurrencies = [...addedCurrencies, currency];
+      setAddedCurrencies(updatedCurrencies);
+      sessionStorage.setItem(
+        "addedCurrencies",
+        JSON.stringify(updatedCurrencies)
+      );
     }
   };
 
   const handleRemoveCurrency = (currency: string) => {
-    setAddedCurrencies(
-      addedCurrencies.filter((c) => c !== currency || c === "USD")
-    );
+    if (currency === "USD") return;
+    {
+      const updatedCurrencies = addedCurrencies.filter((c) => c !== currency);
+      setAddedCurrencies(updatedCurrencies);
+      sessionStorage.setItem(
+        "addedCurrencies",
+        JSON.stringify(updatedCurrencies)
+      );
+    }
   };
 
   if (loading) return <div>Loading...</div>;
