@@ -15,27 +15,35 @@ const CurrencyInput = ({
   onChange,
   onRemove,
 }: CurrencyInputProps) => {
-  const [inputValue, setInputValue] = useState(rate);
+  const [inputValue, setInputValue] = useState(rate.toString());
 
   useEffect(() => {
-    setInputValue(rate);
+    setInputValue(rate.toString());
   }, [rate]);
 
   const debouncedOnChange = useCallback(
-    debounce((currency: string, value: number) => {
-      onChange(currency, value);
+    debounce((currency: string, numberValue: number) => {
+      onChange(currency, numberValue);
     }, 600),
     [onChange]
   );
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    let value = parseFloat(e.target.value);
+    let value = e.target.value;
 
-    if (isNaN(value) || value < 0) {
-      value = 0;
+    if (value.startsWith("0") && value.length > 1) {
+      value = value.replace(/^0+/, "") || "1";
     }
+
+    let numberValue = parseFloat(value);
+
+    if (isNaN(numberValue) || numberValue < 0) {
+      numberValue = 1;
+      value = "1";
+    }
+
     setInputValue(value);
-    debouncedOnChange(currency, value);
+    debouncedOnChange(currency, numberValue);
   };
 
   return (
