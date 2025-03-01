@@ -5,6 +5,7 @@ import { convertCurrency } from "../../api/convertRates";
 import useRatesStore from "../../store/useRatesStore";
 import CurrencyButton from "../AddCurrencyButton/AddCurrencyButton";
 import CurrencyInput from "../CurrencyInput/CurrencyInput";
+import { CircularProgress, Box } from "@mui/material";
 import styles from "./CurrencyConverter.module.css";
 
 const CurrencyConverter = () => {
@@ -59,7 +60,12 @@ const CurrencyConverter = () => {
     }
   };
 
-  if (loading) return <div>Loading...</div>;
+  if (loading)
+    return (
+      <Box sx={{ display: "flex", justifyContent: "center" }}>
+        <CircularProgress />
+      </Box>
+    );
   if (error) return <div>Error: {error}</div>;
 
   if (!rates || Object.keys(rates).length === 0) {

@@ -8,6 +8,8 @@ import {
   TableRow,
   Paper,
   TablePagination,
+  CircularProgress,
+  Box,
 } from "@mui/material";
 import useRatesStore from "../../store/useRatesStore";
 import CustomButton from "../CustomButton/CustomButton";
@@ -44,7 +46,12 @@ const ExchangeRatesTable = () => {
 
   const currencies = Object.entries(ratesToDisplay);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading)
+    return (
+      <Box sx={{ display: "flex", justifyContent: "center" }}>
+        <CircularProgress />
+      </Box>
+    );
   if (error) return <div>Error: {error}</div>;
 
   return (
