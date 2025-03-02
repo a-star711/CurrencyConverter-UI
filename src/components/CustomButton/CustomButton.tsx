@@ -3,23 +3,23 @@ import React from "react";
 
 interface CustomButtonProps extends ButtonProps {
   children: React.ReactNode;
+  onClick: () => void;
 }
 
-const CustomButton = ({ children, ...props }: CustomButtonProps) => {
+const CustomButton = ({ children, onClick }: CustomButtonProps) => {
   const buttonStyle = {
-    backgroundColor: "#4983db",
+    backgroundColor: "var(--button-bg)",
     ":hover": {
-      backgroundColor: "#125ea6",
+      backgroundColor: "var(--button-bg-hover)",
     },
-    color: "white",
+    color: "var(--button-text)",
     fontSize: "12px",
     margin: "10px",
     padding: "6px 12px",
     minWidth: "auto",
   };
-
   return (
-    <Button variant="contained" sx={buttonStyle} {...props}>
+    <Button sx={buttonStyle} onClick={onClick}>
       {children}
     </Button>
   );

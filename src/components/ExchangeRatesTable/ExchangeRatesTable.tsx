@@ -57,7 +57,7 @@ const ExchangeRatesTable = () => {
   return (
     <TableContainer
       component={Paper}
-      sx={{ boxShadow: "2px 2px 10px rgba(18, 73, 211, 0.716)" }}
+      sx={{ boxShadow: "2px 2px 10px  #1249D3" }}
     >
       <Table>
         <TableHead>

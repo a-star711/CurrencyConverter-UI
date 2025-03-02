@@ -1,5 +1,5 @@
 .header {
-  background: linear-gradient(to right, #7fa1ce, #4983db); 
+  background: linear-gradient(to right, var(--button-bg), var(--button-text)); 
   display: flex;
   align-items: center;  
   padding: 0 20px; 

@@ -20,11 +20,11 @@ function AddCurrencyButton({
   );
 
   const addCurrencyButtonStyle = {
-    backgroundColor: "#4983db",
+    backgroundColor: "var(--button-bg)",
     ":hover": {
-      backgroundColor: "#125ea6",
+      backgroundColor: "var(--button-bg-hover)",
     },
-    color: "white",
+    color: "var(--button-text)",
     fontSize: "12px",
     minWidth: "auto",
   };
@@ -48,13 +48,14 @@ function AddCurrencyButton({
     <div className={styles.buttonContainer}>
       <FormControl className={styles.dropdown}>
         <Select
+          aria-label="add currency"
           className={styles.selectButton}
           open={isDropdownOpen}
           onOpen={handleOnOpen}
           onClose={handleOnClose}
           onChange={(e) => handleAddCurrency(e.target.value as string)}
           displayEmpty
-          renderValue={() => "+ add Currency"}
+          renderValue={() => "+ Add Currency"}
           value=""
           sx={addCurrencyButtonStyle}
           MenuProps={{
