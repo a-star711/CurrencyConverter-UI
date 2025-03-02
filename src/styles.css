@@ -2,7 +2,7 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  --button-bg: #333333;
-  --button-bg-hover: #1249d3;
-  --button-text: #f5f5f5;
+  --button-bg: #121C2D      ;
+  --button-bg-hover: #1249d3 ;
+  --button-text: #FFFFFF    ;
 }

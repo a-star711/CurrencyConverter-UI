@@ -8,6 +8,17 @@ type AddCurrencyButtonProps = {
   onAddCurrency: (currency: string) => void;
 };
 
+const addCurrencyButtonStyle = {
+  backgroundColor: "var(--button-bg)",
+  ":hover": {
+    backgroundColor: "var(--button-bg-hover)",
+  },
+  color: "var(--button-text)",
+  fontSize: "12px",
+  width: 160,
+  height: "80%",
+};
+
 function AddCurrencyButton({
   availableCurrencies,
   addedCurrencies,
@@ -18,16 +29,6 @@ function AddCurrencyButton({
   const filteredCurrencies = availableCurrencies.filter(
     (currency) => !addedCurrencies.includes(currency)
   );
-
-  const addCurrencyButtonStyle = {
-    backgroundColor: "var(--button-bg)",
-    ":hover": {
-      backgroundColor: "var(--button-bg-hover)",
-    },
-    color: "var(--button-text)",
-    fontSize: "12px",
-    minWidth: "auto",
-  };
 
   const handleAddCurrency = (currency: string) => {
     if (currency) {

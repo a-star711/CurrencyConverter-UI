@@ -16,7 +16,6 @@ const CustomButton = ({ children, onClick }: CustomButtonProps) => {
     fontSize: "12px",
     margin: "10px",
     padding: "6px 12px",
-    minWidth: "auto",
   };
   return (
     <Button sx={buttonStyle} onClick={onClick}>
