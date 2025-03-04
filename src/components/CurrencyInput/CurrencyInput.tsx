@@ -29,20 +29,20 @@ const CurrencyInput = ({
   );
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    let value = e.target.value;
+    let stringValue = e.target.value;
 
-    if (value.startsWith("0") && value.length > 1) {
-      value = value.replace(/^0+/, "") || "1";
+    if (stringValue.startsWith("0") && stringValue.length > 1) {
+      stringValue = stringValue.replace(/^0+/, "") || "1";
     }
 
-    let numberValue = parseFloat(value);
+    let numberValue = parseFloat(stringValue);
 
     if (isNaN(numberValue) || numberValue < 0) {
       numberValue = 1;
-      value = "1";
+      stringValue = "1";
     }
 
-    setInputValue(value);
+    setInputValue(stringValue);
     debouncedOnChange(currency, numberValue);
   };
 
@@ -52,6 +52,7 @@ const CurrencyInput = ({
       <input
         type="number"
         value={inputValue}
+        aria-label="currency-input"
         onChange={handleChange}
         className={styles.input}
       />

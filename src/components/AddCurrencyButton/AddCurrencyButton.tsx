@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Select, MenuItem, FormControl } from "@mui/material";
+import { Select, MenuItem, FormControl, InputLabel } from "@mui/material";
 import styles from "./AddCurrencyButton.module.css";
 
 type AddCurrencyButtonProps = {
@@ -48,15 +48,19 @@ function AddCurrencyButton({
   return (
     <div className={styles.buttonContainer}>
       <FormControl className={styles.dropdown}>
+        <InputLabel id="add-currency-label" className={styles.visuallyHidden}>
+          Add a new currency
+        </InputLabel>
+
         <Select
-          aria-label="add currency"
+          labelId="add-currency-label"
+          id="add-currency-select"
           className={styles.selectButton}
           open={isDropdownOpen}
           onOpen={handleOnOpen}
           onClose={handleOnClose}
           onChange={(e) => handleAddCurrency(e.target.value as string)}
           displayEmpty
-          renderValue={() => "+ Add Currency"}
           value=""
           sx={addCurrencyButtonStyle}
           MenuProps={{
