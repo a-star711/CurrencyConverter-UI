@@ -2,7 +2,7 @@ import { API_BASE_URL } from "../utils/constants";
 
 export const fetchRates = async () => {
   try {
-    const response = await fetch(`${API_BASE_URL}/rates`);
+    const response = await fetch(`${API_BASE_URL}/api/v1/rates`);
 
     if (!response.ok) {
       throw new Error("Failed to fetch rates");

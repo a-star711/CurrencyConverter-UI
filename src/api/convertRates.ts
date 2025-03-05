@@ -3,7 +3,7 @@ import { API_BASE_URL } from "../utils/constants";
 export const convertCurrency = async (currency: string, value: number) => {
   
   try {
-    const response = await fetch(`${API_BASE_URL}/convert`, {
+    const response = await fetch(`${API_BASE_URL}/api/v1/rates/convert`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

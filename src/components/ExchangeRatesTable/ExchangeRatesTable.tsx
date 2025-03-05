@@ -13,7 +13,7 @@ import {
 } from "@mui/material";
 import useRatesStore from "../../store/useRatesStore";
 import CustomButton from "../CustomButton/CustomButton";
-import { rowsPerPageOptions } from "../../utils/constants";
+import { initialRowsCount, rowsPerPageOptions } from "../../utils/constants";
 
 const ExchangeRatesTable = () => {
   const { rates, loading, error, fetchSortedRates } = useRatesStore();
@@ -22,7 +22,7 @@ const ExchangeRatesTable = () => {
   const [isSorted, setIsSorted] = useState<boolean>(false);
 
   const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(10);
+  const [rowsPerPage, setRowsPerPage] = useState(initialRowsCount);
 
   useEffect(() => {
     useRatesStore.getState().fetchRates();
