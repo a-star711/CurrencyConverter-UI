@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { DEFAULT_CURRENCIES, MAX_CURRENCY_INPUTS } from "../../utils/constants";
-import { convertCurrency } from "../../api/convertRates";
+import { convertCurrency } from "../../api/rates";
 import { CircularProgress, Box } from "@mui/material";
 import useRatesStore from "../../store/useRatesStore";
 import CurrencyButton from "../AddCurrencyButton/AddCurrencyButton";

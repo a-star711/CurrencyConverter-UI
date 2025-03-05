@@ -1,6 +1,5 @@
 import { create } from 'zustand'; 
-import { fetchRates } from '../api/getRates'; 
-import { sortRates } from '../api/getSortedRates';
+import { fetchRates, sortRates } from '../api/rates'; 
 
 interface RatesStore {
   rates: Record<string, number>; 
